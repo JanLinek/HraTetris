@@ -46,7 +46,7 @@ namespace HraTetris
             int X = SirkaPlochy / 2;    //Toto budou souřadnice nově vygenerovaného obrazce
             int Y = 1;
             bool NeniKonec = true;  //Proměnná sledující, zda nenastala prohra
-
+            int PristiVarianta = -1;int PristiBarva = -1;
             //Pro spuštění hry se vyčká na klávesu
             VykresliRamecek(MantinelX1 - 16, VyskaPlochy / 2, 5, 4, " Klávesu pro start... ");
             Console.ReadKey(true);
@@ -61,7 +61,10 @@ namespace HraTetris
                     obrazcu++;
                     Items++;
                     Score++;
+                    if (PristiVarianta<0) PristiVarianta = r.Next(7);
+                    if (PristiBarva < 0) PristiBarva = r.Next(1, 6);
                     VypisScore();
+                    VykresliPristiTvar(PristiVarianta,PristiBarva);
                     int Varianta = r.Next(7);   //Varianta generovaného obrazce
                     Hra hraProObrazec = new Hra(OdstupZleva, SirkaPlochy, VyskaPlochy); //pomocná instance Hry
                     hraProObrazec.kostickyPlocha = kostickyPlocha;                      //pro obrazec
@@ -97,6 +100,8 @@ namespace HraTetris
                         NeniKonec = false;
                         break;
                     }
+                    PristiVarianta = Varianta;
+                    PristiBarva = obrazec.Barva;
                 }
                 if (Level < 31)
                 {
@@ -107,7 +112,7 @@ namespace HraTetris
                             VyskaPlochy - 10, 3, Barva, " Level: " + Level + " ");
                         Thread.Sleep(10); Console.Beep(100 * Barva, 100);
                     }
-                }
+                }               
             }
         }
         public bool KonecHry()
@@ -217,6 +222,10 @@ namespace HraTetris
             }
             Console.SetCursorPosition(PHrohX * 2 + 2, PHrohY + vyska / 2 + 1);  //Nakonec vepíšu text
             Console.WriteLine(text);
+        }
+        public void VykresliPristiTvar(int PristiVarianta,int PristiBarva)
+        {
+            VykresliRamecek(MantinelX1 - 20, VyskaPlochy - 10, 3, 3, " Next shape: " + Level + " ");
         }
         public void VstupniObrazovka()
         {
