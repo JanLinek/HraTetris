@@ -1,0 +1,15 @@
+C:\Projekty\Cecko\HraTetris\HraTetris\bin\Debug\net6.0\HraTetris.exe
+C:\Projekty\Cecko\HraTetris\HraTetris\bin\Debug\net6.0\HraTetris.deps.json
+C:\Projekty\Cecko\HraTetris\HraTetris\bin\Debug\net6.0\HraTetris.runtimeconfig.json
+C:\Projekty\Cecko\HraTetris\HraTetris\bin\Debug\net6.0\HraTetris.dll
+C:\Projekty\Cecko\HraTetris\HraTetris\bin\Debug\net6.0\HraTetris.pdb
+C:\Projekty\Cecko\HraTetris\HraTetris\obj\Debug\net6.0\HraTetris.csproj.AssemblyReference.cache
+C:\Projekty\Cecko\HraTetris\HraTetris\obj\Debug\net6.0\HraTetris.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projekty\Cecko\HraTetris\HraTetris\obj\Debug\net6.0\HraTetris.AssemblyInfoInputs.cache
+C:\Projekty\Cecko\HraTetris\HraTetris\obj\Debug\net6.0\HraTetris.AssemblyInfo.cs
+C:\Projekty\Cecko\HraTetris\HraTetris\obj\Debug\net6.0\HraTetris.csproj.CoreCompileInputs.cache
+C:\Projekty\Cecko\HraTetris\HraTetris\obj\Debug\net6.0\HraTetris.dll
+C:\Projekty\Cecko\HraTetris\HraTetris\obj\Debug\net6.0\refint\HraTetris.dll
+C:\Projekty\Cecko\HraTetris\HraTetris\obj\Debug\net6.0\HraTetris.pdb
+C:\Projekty\Cecko\HraTetris\HraTetris\obj\Debug\net6.0\HraTetris.genruntimeconfig.cache
+C:\Projekty\Cecko\HraTetris\HraTetris\obj\Debug\net6.0\ref\HraTetris.dll
