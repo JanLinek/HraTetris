@@ -46,7 +46,7 @@ namespace HraTetris
             int X = SirkaPlochy / 2;    //Toto budou souřadnice nově vygenerovaného obrazce
             int Y = 1;
             bool NeniKonec = true;  //Proměnná sledující, zda nenastala prohra
-            int PristiVarianta = -1;int PristiBarva = -1;
+            int Varianta = r.Next(7);   //Varianta generovaného obrazce
             //Pro spuštění hry se vyčká na klávesu
             VykresliRamecek(MantinelX1 - 16, VyskaPlochy / 2, 5, 4, " Klávesu pro start... ");
             Console.ReadKey(true);
@@ -61,13 +61,13 @@ namespace HraTetris
                     obrazcu++;
                     Items++;
                     Score++;
-                    if (PristiVarianta<0) PristiVarianta = r.Next(7);
-                    if (PristiBarva < 0) PristiBarva = r.Next(1, 6);
+                    int PristiVarianta = r.Next(7);
                     VypisScore();
-                    VykresliPristiTvar(PristiVarianta,PristiBarva);
-                    int Varianta = r.Next(7);   //Varianta generovaného obrazce
+                    
+                    
                     Hra hraProObrazec = new Hra(OdstupZleva, SirkaPlochy, VyskaPlochy); //pomocná instance Hry
                     hraProObrazec.kostickyPlocha = kostickyPlocha;                      //pro obrazec
+                    VykresliPristiTvar(PristiVarianta,hraProObrazec);
                     Obrazec obrazec = new Obrazec(Varianta, X, Y, 3, hraProObrazec);    //vygenerování obrazce
                     obrazec.Barva = r.Next(1, 6);   //barva obrazce je náhodná...ani nevím, proč to nemám v konstruktoru
                     obrazec.VykresliObrazec();
@@ -100,8 +100,7 @@ namespace HraTetris
                         NeniKonec = false;
                         break;
                     }
-                    PristiVarianta = Varianta;
-                    PristiBarva = obrazec.Barva;
+                    Varianta = PristiVarianta;
                 }
                 if (Level < 31)
                 {
@@ -223,9 +222,13 @@ namespace HraTetris
             Console.SetCursorPosition(PHrohX * 2 + 2, PHrohY + vyska / 2 + 1);  //Nakonec vepíšu text
             Console.WriteLine(text);
         }
-        public void VykresliPristiTvar(int PristiVarianta,int PristiBarva)
+        public void VykresliPristiTvar(int PristiVarianta, Hra hraProObrazec)
         {
-            VykresliRamecek(MantinelX1 - 20, VyskaPlochy - 10, 3, 3, " Next shape: " + Level + " ");
+            VykresliRamecek(MantinelX1 - 22, VyskaPlochy - 10, 11,11, "             ");
+            Console.SetCursorPosition(MantinelX1 - 17, VyskaPlochy - 7);
+            Console.WriteLine("Next shape:");
+            Obrazec pristiObrazec = new Obrazec(PristiVarianta, MantinelX1 - 43, VyskaPlochy - 4, 6, hraProObrazec);
+            pristiObrazec.VykresliObrazec();
         }
         public void VstupniObrazovka()
         {
